@@ -4,6 +4,8 @@
 
 from enum import Enum
 # Token
+
+
 class Grammar(Enum):
     EOS = 0
     ANY = 1
@@ -23,6 +25,7 @@ class Grammar(Enum):
     OR = 15
     PLUS_CLOSE = 16
 
+
 # 正则的语法
 Grammars = {
     '.': Grammar.ANY,  # 1
@@ -35,6 +38,8 @@ Grammars = {
     '+': Grammar.PLUS_CLOSE,  # 16
 }
 # Lexical analyzer
+
+
 class Lexer(object):
     def __init__(self, pattern):
         self.pattern = pattern
@@ -43,6 +48,7 @@ class Lexer(object):
         self.isescape = False
         self.current_token = None
     # 进入下一个状态
+
     def advance(self):
         pos = self.pos
         pattern = self.pattern
@@ -99,6 +105,3 @@ class Lexer(object):
 
     def match(self, token):
         return self.current_token == token
-
-
-

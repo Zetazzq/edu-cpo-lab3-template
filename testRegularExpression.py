@@ -2,6 +2,7 @@
 import unittest
 from RegularExpression import *
 
+
 class testRegularExpression(unittest.TestCase):
 
     def test_match_w(self):
@@ -39,7 +40,6 @@ class testRegularExpression(unittest.TestCase):
         reg_result = RegularExpression(str, reg).match()
         self.assertEqual(str, reg_result)
 
-
     def test_match_multiplication(self):
         # test *
         str = "abcddddddd"
@@ -61,7 +61,6 @@ class testRegularExpression(unittest.TestCase):
         reg_result = RegularExpression(str, reg).match()
         self.assertEqual(str, reg_result)
 
-
     def test_position_multiplication(self):
         # test *  position(search)
         str = "abcddddddd"
@@ -79,7 +78,5 @@ class testRegularExpression(unittest.TestCase):
         self.assertEqual(result, "aaaaabcccccasdzxc")
 
 
-
-if __name__=="__main__":
+if __name__ == "__main__":
     unittest.main()
-

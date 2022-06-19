@@ -1,6 +1,5 @@
-
-
 import nafUtils
+
 
 class RegularExpression(object):
     def __init__(self, input_string, regular_string):
@@ -14,13 +13,14 @@ class RegularExpression(object):
         nfa_machine = nafUtils.nfa_builder(reg)
         self.graph = nafUtils.get_visualize(nfa_machine)
         return nafUtils.match(str, nfa_machine)
+
     def match(self):
         for i in range(len(self.input_string)):
             result = self.matchOne()
             if result:
                 break
             self.input_string = self.input_string[1:]
-        if len(result)==0:
+        if len(result) == 0:
             return "You should enter the correct expression"
         return "".join(result)
 
@@ -48,8 +48,6 @@ class RegularExpression(object):
                         end = len(self.input_string)-1
                     if start is not None:
                         return True, start, end
-
-
 
     def split(self):
         for i in range(len(self.input_string)):
