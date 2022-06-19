@@ -340,11 +340,15 @@ def get_visualize(start_node):
         next_2 = start_node.next_2 is not None
 
         if next_1:
-            res.append(" {} -> {} [label=\"{}\"];".format(start_node.status_num, start_node.next_1.status_num,
-                                                          start_node.edge))
+            res.append(" {} -> {} [label=\"{}\"];".format(
+                start_node.status_num,
+                start_node.next_1.status_num,
+                start_node.edge))
         if next_2:
-            res.append(" {} -> {} [label=\"{}\"];".format(start_node.status_num, start_node.next_2.status_num,
-                                                          start_node.edge))
+            res.append(" {} -> {} [label=\"{}\"];".format(
+                start_node.status_num,
+                start_node.next_2.status_num,
+                start_node.edge))
         start_node.visited = True
         if start_node.next_1 is not None and not start_node.next_1.visited:
             visualize(start_node.next_1, res)
