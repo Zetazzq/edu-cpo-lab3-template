@@ -1,6 +1,6 @@
 from Lexer import Lexer
 from Lexer import Grammar
-from graphviz import Digraph, Source
+from graphviz import Digraph
 
 # A epsilon edge ε
 EPSILON = -1
@@ -330,7 +330,7 @@ class nfaNode(object):
 
 
 def get_visualize(start_node):
-    dot = Digraph(comment='The Test Table')
+    Digraph(comment='The Test Table')
     res = []
     res.append("digraph G {")
     res.append(" rankdir=LR;")
