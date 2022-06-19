@@ -9,21 +9,21 @@ class testRegularExpression(unittest.TestCase):
     def test_match_w(self):
         # test \w
         str = "abc2"
-        reg = "abc\w"
+        reg = "abc\\w"
         reg_result = RegularExpression(str, reg).match()
         self.assertEqual(str, reg_result)
 
     def test_match_s(self):
         # test \s
         str = "abc "
-        reg = "abc\s"
+        reg = "abc\\s"
         reg_result = RegularExpression(str, reg).match()
         self.assertEqual(str, reg_result)
 
     def test_match_d(self):
         # test \d
         str = "abc9"
-        reg = "abc\d"
+        reg = "abc\\d"
         reg_result = RegularExpression(str, reg).match()
         self.assertEqual(str, reg_result)
 
@@ -58,7 +58,7 @@ class testRegularExpression(unittest.TestCase):
     def test_match_why(self):
         # test ? | (  )
         str = "bbbbbbbbbb"
-        reg = "(\*?|b+)"
+        reg = "(\\*?|b+)"
         reg_result = RegularExpression(str, reg).match()
         self.assertEqual(str, reg_result)
 
@@ -74,7 +74,7 @@ class testRegularExpression(unittest.TestCase):
     def test_split(self):
         # test split aaaaabcccccasdzxc
         str = 'hwhwhwhwhaaaaabcccccasdzxc'
-        reg = '(\*?|a+)(zx|bc*)(asd|fgh)(zxc)'
+        reg = '(\\*?|a+)(zx|bc*)(asd|fgh)(zxc)'
         result = RegularExpression(str, reg).split()
         self.assertEqual(result, "aaaaabcccccasdzxc")
 

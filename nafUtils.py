@@ -294,7 +294,8 @@ def search(str, nfa_machine, groupID):
             return None
         elif groupID == 0:
             ls.append(ch)
-        elif len(current_nfa_set) != 0 and current_nfa_set[0].groupID == groupID:
+        elif len(current_nfa_set) != 0 and \
+                current_nfa_set[0].groupID == groupID:
             ls.append(ch)
 
         if has_accepted_state(next_nfa_set) and i == len(str) - 1:
