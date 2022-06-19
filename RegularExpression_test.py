@@ -1,6 +1,5 @@
 
 import unittest
-from hypothesis import given, strategies
 from RegularExpression import RegularExpression
 
 
