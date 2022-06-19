@@ -1,6 +1,7 @@
 
 import unittest
-from RegularExpression import *
+from hypothesis import given, strategies
+from RegularExpression import RegularExpression
 
 
 class testRegularExpression(unittest.TestCase):
