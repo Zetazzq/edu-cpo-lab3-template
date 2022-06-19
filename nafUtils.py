@@ -1,6 +1,6 @@
 from Lexer import Lexer
 from Lexer import Grammar
-from graphviz import Digraph
+from graphviz import Digraph  # type: ignore
 
 # A epsilon edge ε
 EPSILON = -1
