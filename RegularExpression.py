@@ -5,13 +5,11 @@ class RegularExpression(object):
     def __init__(self, input_string, regular_string):
         self.input_string = input_string
         self.regular_string = regular_string
-        self.graph = None
 
     def matchOne(self):
         reg = self.regular_string
         str = self.input_string
         nfa_machine = nafUtils.nfa_builder(reg)
-        self.graph = nafUtils.get_visualize(nfa_machine)
         return nafUtils.match(str, nfa_machine)
 
     def match(self):
@@ -28,7 +26,6 @@ class RegularExpression(object):
         reg = self.regular_string
         str = self.input_string
         nfa_machine = nafUtils.nfa_builder(reg)
-        self.graph = nafUtils.get_visualize(nfa_machine)
 
         resultSearch = nafUtils.search(str, nfa_machine, groupID)
         return "".join(resultSearch)

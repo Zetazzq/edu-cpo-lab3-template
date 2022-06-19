@@ -1,7 +1,6 @@
 
 from Lexer import Lexer
 from Lexer import Grammar
-from graphviz import Digraph
 
 # A epsilon edge ε
 EPSILON = -1
@@ -327,30 +326,3 @@ class nfaNode(object):
         self.input_set = set()
         for i in range(ASCII_COUNT):
             self.input_set.add(chr(i))
-
-
-def get_visualize(start_node):
-    dot = Digraph(comment='The Test Table')
-    res = []
-    res.append("digraph G {")
-    res.append(" rankdir=LR;")
-
-    def visualize(start_node, res):
-        next_1 = start_node.next_1 is not None
-        next_2 = start_node.next_2 is not None
-
-        if next_1:
-            res.append(" {} -> {} [label=\"{}\"];".format(start_node.status_num,
-                                                          start_node.next_1.status_num, start_node.edge))
-        if next_2:
-            res.append(" {} -> {} [label=\"{}\"];".format(start_node.status_num,
-                                                          start_node.next_2.status_num, start_node.edge))
-        start_node.visited = True
-        if start_node.next_1 is not None and not start_node.next_1.visited:
-            visualize(start_node.next_1, res)
-        if start_node.next_2 is not None and not start_node.next_2.visited:
-            visualize(start_node.next_2, res)
-        return "\n".join(res)
-
-    # dot.render('./imageVisualize/group', view=True)
-    return visualize(start_node, res) + "\n}"
